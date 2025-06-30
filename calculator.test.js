@@ -22,4 +22,8 @@ describe('Create string calculator', () => {
     test('return sum if other special charaters are used', () => {
         expect(add("//;\n1;2")).toBe(3);
     })
+
+    test('throws an error if negative numbers are present', () => {
+        expect(() => add("1,-2,3,-5")).toThrow("Negative numbers are not allowed: -2,-5");
+    });
 })

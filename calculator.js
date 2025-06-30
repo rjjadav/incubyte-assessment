@@ -18,8 +18,13 @@ function add(numbers) {
 
     }
 
-    return numberBlock.split(delimiter)
-        .map(number => parseInt(number))
+    const numbersArr = numberBlock.split(delimiter).map(number => parseInt(number));
+    const negativeNumbers = numbersArr.filter(number => number < 0);
+    if(negativeNumbers.length) {
+        throw new Error(`Negative numbers are not allowed: ${negativeNumbers.join(',')}`)
+    }
+    
+    return numbersArr
         .reduce((sum, current) => sum + current, 0);
 }
 
