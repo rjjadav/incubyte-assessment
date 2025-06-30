@@ -13,9 +13,13 @@ describe('Create string calculator', () => {
     test('return sum for two comma separated value as string', () => {
         expect(add("1,5")).toBe(6);
         expect(add("3,5")).toBe(8);
-    })
+    });
 
     test('return sum if new line is used as delimiter', () => {
         expect(add('1\n2,3')).toBe(6);
+    });
+
+    test('return sum if other special charaters are used', () => {
+        expect(add("//;\n1;2")).toBe(3);
     })
 })
