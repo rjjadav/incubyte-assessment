@@ -30,4 +30,8 @@ describe('Create string calculator', () => {
     test('Return the Output for 12,ab,34,cd', () => {
         expect(() => add("12,ab,34,cd")).toThrow("Strings are not allowed: ab,cd");
     })
+
+    test('Ignore numbers bigger than 1000', () => {
+        expect(add('1,3,1001')).toBe(4);
+    });
 })
