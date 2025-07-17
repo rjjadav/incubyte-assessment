@@ -18,14 +18,20 @@ function add(numbers) {
 
     }
 
-    const numbersArr = numberBlock.split(delimiter).map(number => parseInt(number));
-    const negativeNumbers = numbersArr.filter(number => number < 0);
+    const numbersArr = numberBlock.split(delimiter);
+    const stringArr = numbersArr.filter(element => isNaN(element));
+
+    if(stringArr.length) {
+        throw new Error(`Strings are not allowed: ${stringArr.join(',')}`)
+    }
+
+    const negativeNumbers = numbersArr.filter(number => parseInt(number) < 0);
     if(negativeNumbers.length) {
         throw new Error(`Negative numbers are not allowed: ${negativeNumbers.join(',')}`)
     }
     
     return numbersArr
-        .reduce((sum, current) => sum + current, 0);
+        .reduce((sum, current) => sum + parseInt(current), 0);
 }
 
 // Utility to escape special regex characters in custom delimiters

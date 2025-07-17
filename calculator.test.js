@@ -26,4 +26,8 @@ describe('Create string calculator', () => {
     test('Throws an error if negative numbers are present', () => {
         expect(() => add("1,-2,3,-5")).toThrow("Negative numbers are not allowed: -2,-5");
     });
+
+    test('Return the Output for 12,ab,34,cd', () => {
+        expect(() => add("12,ab,34,cd")).toThrow("Strings are not allowed: ab,cd");
+    })
 })
